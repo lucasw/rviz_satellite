@@ -617,7 +617,7 @@ void AerialMapDisplay::destroyTileObjects()
     scene_manager_->destroyManualObject(obj.object);
 
     // destroy material
-    if (!obj.material.isNull())
+    if (obj.material)
     {
       Ogre::MaterialManager::getSingleton().remove(obj.material->getName());
     }
@@ -657,7 +657,7 @@ void AerialMapDisplay::createTileObjects()
     obj->setVisible(false);
     scene_node_->attachObject(obj);
 
-    assert(!material.isNull());
+    assert(material);
     objects_.emplace_back(obj, material);
   }
 }
@@ -855,7 +855,7 @@ void AerialMapDisplay::assembleScene()
     {
       auto obj = it->object;
       auto& material = it->material;
-      assert(!material.isNull());
+      assert(material);
       ++it;
 
       TileId const to_find{ center_tile_->tile_server, { xx, yy }, center_tile_->zoom };

@@ -27,7 +27,7 @@ limitations under the License. */
 #include <tf2_ros/buffer.h>
 
 #include <OGRE/OgreMaterial.h>
-#include <OGRE/OgreVector3.h>
+#include <OGRE/Ogre.h>
 
 #include "coordinates.h"
 #include "ogre_tile.h"

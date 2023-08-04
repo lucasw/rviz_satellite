@@ -42,7 +42,7 @@ std::string uniqueTextureName()
 Ogre::TexturePtr textureFromImage(QImage image)
 {
   Ogre::DataStreamPtr data_stream;
-  data_stream.bind(new Ogre::MemoryDataStream((void*)image.constBits(), image.byteCount()));
+  data_stream.reset(new Ogre::MemoryDataStream((void*)image.constBits(), image.sizeInBytes()));
 
   Ogre::String const res_group = Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME;
 
